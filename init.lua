@@ -1,7 +1,6 @@
-require("dmitry.plugins-setup")
-require("dmitry.tree")
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 require("dmitry.options")
-require("dmitry.keymaps")
-require("dmitry.colorscheme")
-require("dmitry.lualine")
-require("dmitry.lsp")
+require("dmitry.plugins-setup")
