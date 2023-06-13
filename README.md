@@ -8,7 +8,7 @@ Requires:
 brew install ripgrep
 ```
 
-2. [fd](https://github.com/sharkdp/fd))
+2. [fd](https://github.com/sharkdp/fd)
 
 ```bash
 brew install fd
