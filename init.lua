@@ -2,5 +2,5 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require("dmitry.options")
-require("dmitry.plugins-setup")
+require("options")
+require("plugins-setup")

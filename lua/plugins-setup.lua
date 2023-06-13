@@ -16,26 +16,26 @@ return require('packer').startup(function(use)
   use {
     'navarasu/onedark.nvim',
     config = function()
-      require('dmitry.plugins.colorscheme')
+      require('plugins.colorscheme')
     end
   }
   use {
     'nvim-lualine/lualine.nvim',
     config = function()
-      require('dmitry.plugins.lualine')
+      require('plugins.lualine')
     end
   }
   use {
     'nvim-tree/nvim-tree.lua',
     config = function()
-      require('dmitry.plugins.tree')
+      require('plugins.tree')
     end
   }
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { {'nvim-lua/plenary.nvim'} },
     config = function()
-      require('dmitry.plugins.telescope')
+      require('plugins.telescope')
     end
   }
   use {
@@ -44,27 +44,29 @@ return require('packer').startup(function(use)
       require('nvim-web-devicons').setup({ default = true; })
     end
   }
-
-  -- конфиги для LSP серверов, нужен для простой настройки и
-  -- возможности добавления новых серверов
   use {
     'neovim/nvim-lspconfig',
     config = function()
-      require('dmitry.plugins.lsp')
+      require('plugins.lspconfig')
     end
   }
-  -- зависимости для движка автодополнения
-  use 'hrsh7th/cmp-nvim-lsp'
+  use {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require('plugins.cmp')
+    end
+  }
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
+  use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
-  -- движок автодополнения для LSP
-  use 'hrsh7th/nvim-cmp'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
-      require('dmitry.plugins.treesitter') 
+      require('plugins.treesitter') 
     end
   }
 

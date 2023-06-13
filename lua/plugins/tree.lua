@@ -11,7 +11,13 @@ require("nvim-tree").setup({
     width = 30,
   },
   renderer = {
-    group_empty = true,
+    group_empty = true,    
+    highlight_git = true,
+    icons = {
+      show = {
+        git = true,
+      },
+    },
   },
   filters = {
     dotfiles = true,
