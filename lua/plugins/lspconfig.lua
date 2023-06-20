@@ -1,12 +1,13 @@
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {}
-lspconfig.tsserver.setup {}
+lspconfig.pyright.setup{}
+lspconfig.tsserver.setup{}
 lspconfig.eslint.setup{}
 lspconfig.gopls.setup{}
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {
-    ['rust-analyzer'] = {},
+    ['rust-analyzer'] = {
+    },
   },
 }
 
@@ -48,4 +49,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    update_in_insert = true,
+  }
+)
+
+-- have a fixed column for the diagnostics to appear in
+-- this removes the jitter when warnings/errors flow in
+vim.wo.signcolumn = "yes"
+
+-- format on save
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
