@@ -1,3 +1,6 @@
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 local lspconfig = require('lspconfig')
 lspconfig.pyright.setup{}
 lspconfig.tsserver.setup{}
@@ -7,6 +10,10 @@ lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {
     ['rust-analyzer'] = {
+        -- enable clippy on save
+        -- checkOnSave = {
+        --   command = "clippy",
+        -- },
     },
   },
 }
@@ -59,7 +66,4 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 -- have a fixed column for the diagnostics to appear in
 -- this removes the jitter when warnings/errors flow in
 vim.wo.signcolumn = "yes"
-
--- format on save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 

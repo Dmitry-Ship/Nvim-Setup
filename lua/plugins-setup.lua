@@ -69,7 +69,17 @@ return require('packer').startup(function(use)
       require('plugins.treesitter') 
     end
   }
-
+  use "williamboman/mason-lspconfig.nvim"
+  use {
+    "williamboman/mason.nvim",
+    run = ":MasonUpdate", -- :MasonUpdate updates registry contents
+  }
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    config = function()
+      require('plugins.null-ls')
+    end
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
