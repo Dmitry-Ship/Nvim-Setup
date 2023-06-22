@@ -19,6 +19,12 @@ return require('packer').startup(function(use)
       require('plugins.colorscheme')
     end
   }
+  -- use {
+  --   "catppuccin/nvim", as = "catppuccin", 
+  --   config = function()
+  --     require('plugins.colorscheme')
+  --   end
+  -- }
   use {
     'nvim-lualine/lualine.nvim',
     config = function()
@@ -61,6 +67,13 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
 
   use {
     'nvim-treesitter/nvim-treesitter',
