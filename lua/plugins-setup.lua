@@ -13,36 +13,20 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  use {
-    'navarasu/onedark.nvim',
-    config = function()
-      require('plugins.colorscheme')
-    end
-  }
+  use 'navarasu/onedark.nvim'
+
   -- use {
   --   "catppuccin/nvim", as = "catppuccin", 
   --   config = function()
   --     require('plugins.colorscheme')
   --   end
   -- }
-  use {
-    'nvim-lualine/lualine.nvim',
-    config = function()
-      require('plugins.lualine')
-    end
-  }
-  use {
-    'nvim-tree/nvim-tree.lua',
-    config = function()
-      require('plugins.tree')
-    end
-  }
+  use 'nvim-lualine/lualine.nvim'
+  use 'nvim-tree/nvim-tree.lua'
+
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { {'nvim-lua/plenary.nvim'} },
-    config = function()
-      require('plugins.telescope')
-    end
   }
   use {
     'kyazdani42/nvim-web-devicons',
@@ -50,18 +34,8 @@ return require('packer').startup(function(use)
       require('nvim-web-devicons').setup({ default = true; })
     end
   }
-  use {
-    'neovim/nvim-lspconfig',
-    config = function()
-      require('plugins.lspconfig')
-    end
-  }
-  use {
-    'hrsh7th/nvim-cmp',
-    config = function()
-      require('plugins.cmp')
-    end
-  }
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'hrsh7th/cmp-buffer'
@@ -78,21 +52,14 @@ return require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = function()
-      require('plugins.treesitter') 
-    end
   }
   use "williamboman/mason-lspconfig.nvim"
   use {
     "williamboman/mason.nvim",
     run = ":MasonUpdate", -- :MasonUpdate updates registry contents
   }
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    config = function()
-      require('plugins.null-ls')
-    end
-  }
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'romgrk/barbar.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
