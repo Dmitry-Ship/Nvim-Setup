@@ -1,4 +1,2 @@
-require('onedark').setup {
-    style = 'cool'
-}
-require('onedark').load()
+vim.cmd("colorscheme onedark")
+vim.opt.termguicolors = true
